@@ -35,7 +35,7 @@ public class SwaggerConfig {
 				.title("Calculadora aritmetica API") //
 				.description("API REST para la calculadora aritmetica") //
 				.termsOfServiceUrl("http://en.wikipedia.org/wiki/Terms_of_service") //
-				.contact(new Contact("Juan Perez", "http://juanperez.com", "jperez@mail.com")) //
+				.contact(new Contact("Ramiro Chayle", "https://github.com/RamiroHCh/Calculadora", "ramirochayle@gmail.com")) //
 				.license("Apache License Version 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html") //
 				.version("2.0") //
 				.build();

@@ -38,7 +38,7 @@ public class CalculadoraAritmeticaController {
 			throws Exception {
 
 		if (numero2 == 0) {
-			throw new Exception("Error, division por cero");
+			return new ResponseDTO("E","Error, division por cero");
 		}
 
 		return new ResponseDTO(numero1 / numero2, "Ok");

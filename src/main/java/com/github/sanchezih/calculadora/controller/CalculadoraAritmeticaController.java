@@ -34,14 +34,15 @@ public class CalculadoraAritmeticaController {
 
 	@RequestMapping(value = "/division", method = RequestMethod.GET, params = { "numero1",
 			"numero2" }, produces = "application/json")
-	public ResponseDTO dividir(@RequestParam("numero1") Integer numero1, @RequestParam("numero2") Integer numero2)
+	public ResponseDTO dividir(@RequestParam("numero1") Float numero1, @RequestParam("numero2") Float numero2)
 			throws Exception {
 
 		if (numero2 == 0) {
 			return new ResponseDTO("E","Error, division por cero");
 		}
 
-		return new ResponseDTO(numero1 / numero2, "Ok");
+		Float cociente = numero1 / numero2;
+		return new ResponseDTO(cociente, "Ok");
 	}
 
 	@RequestMapping(value = "/potencia", method = RequestMethod.GET, params = { "exponente",
@@ -56,7 +57,7 @@ public class CalculadoraAritmeticaController {
 			throws Exception {
 
 		if (indice % 2 == 0 && radicando < 0) {
-			return new ResponseDTO(null, "Error, no existen raices cuando el indice es par y el radicando negativo");
+			return new ResponseDTO("E", "No existen raices reales para indice par y radicando negativo");
 		}
 
 		return new ResponseDTO(potenciaFunc(radicando, (double) 1 / indice), "Ok");
@@ -68,8 +69,8 @@ public class CalculadoraAritmeticaController {
 		return new ResponseDTO(factorialFunc(n), "Ok");
 	}
 
-	private Integer potenciaFunc(Integer base, double exponente) {
-		return (int) Math.pow(base, exponente);
+	private Double potenciaFunc(Integer base, double exponente) {
+		return (Double) Math.pow(base, exponente);
 	}
 
 	private Integer factorialFunc(Integer n) {
